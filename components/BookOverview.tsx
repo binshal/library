@@ -11,7 +11,7 @@ const BookOverview = ({
   totalCopies,
   availableCopies,
   description,
-  color,
+  coverColor,
   coverUrl,
 } : Book ) => {
   return (
@@ -39,7 +39,7 @@ const BookOverview = ({
           </p>
         </div>
         <p className="book-description">{description}</p>
-        <Button>
+        <Button className="book-overview_btn">
           <Image src={"/icons/book.svg"} alt="book" width={20} height={20}/>
           <p className="font-bebas-neue text-xl text-dark-100">Borrow</p>
         </Button>
@@ -49,13 +49,13 @@ const BookOverview = ({
               <BookCover
               variant = "wide"
               className = "z-10"
-              coverColor={color}
+              coverColor={coverColor}
               coverImage={coverUrl}
               />
               <div className="absolute left-16 top-10 rotate-12 opacity-40 max-sm:hidden">
               <BookCover
               variant = "wide"
-              coverColor={color}
+              coverColor={coverColor}
               coverImage={coverUrl}
               />
               </div>

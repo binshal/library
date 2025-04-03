@@ -27,10 +27,10 @@ import Link from "next/link";
 import { FIELD_NAMES, FIELD_TYPES } from "@/constants";
 import ImageUpload from "./ImageUpload";
 
-interface pros<T extends FieldValues> {
+interface props<T extends FieldValues> {
   schema: ZodType<T>;
   defaultValues: T;
-  onsubmit: (data: T) => Promise<{ success: boolean; error?: string }>;
+  onSubmit: (data: T) => Promise<{ success: boolean; error?: string }>;
   type: "SIGN_IN" | "SIGN_UP";
 }
 const AuthForm = <T extends FieldValues>({
@@ -70,7 +70,7 @@ const AuthForm = <T extends FieldValues>({
                     <FormControl>
                         {
                             field.name === "universityCard" ? (
-                                <ImageUpload/>
+                                <ImageUpload onFileChange={field.onChange} />
                             ) : (
                             <Input required type={FIELD_TYPES[field.name as keyof typeof FIELD_TYPES]} {...field} className="form-input" />
             )}
